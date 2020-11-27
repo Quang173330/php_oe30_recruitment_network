@@ -1,0 +1,21 @@
+{
+  "name": "project1",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Le Xuan Quang <Quang.lxun@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Quang173330/php_oe30_recruitment_network",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "roboto-fontface": "^0.10.0",
+    "lato-font": "^3.0.0"
+  }
+}
