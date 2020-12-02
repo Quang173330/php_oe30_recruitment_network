@@ -9,9 +9,9 @@
                     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="" id="home-tab" role="tab" data-toggle="tab"
-                                    aria-controls="home" aria-expanded="true">@lang('listjob.suitable')</a></li>
+                                aria-controls="home" aria-expanded="true">@lang('listjob.suitable')</a></li>
                             <li role="presentation"><a href="" role="tab" id="profile-tab" data-toggle="tab"
-                                    aria-controls="profile">@lang('listjob.all')</a></li>
+                                aria-controls="profile">@lang('listjob.all')</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
