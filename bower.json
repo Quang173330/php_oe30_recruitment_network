@@ -17,6 +17,8 @@
   "dependencies": {
     "roboto-fontface": "^0.10.0",
     "lato-font": "^3.0.0",
-    "flexisel": "^0.1.1"
+    "flexisel": "^0.1.1",
+    "bootstrap": "3.1.1",
+    "font-awesome": "4.0.3"
   }
 }
