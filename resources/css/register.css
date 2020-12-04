@@ -1,0 +1,49 @@
+.choice{
+    text-align: center;
+    margin-top: 25px;
+}
+.choice-1{
+    background-color: white;
+    max-width: 450px;
+    margin: 0px auto;
+}
+
+.choice-content{
+    display:flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.button1,.button2{
+    color: white;
+    padding: 7px;
+    width: 100%;
+    max-width: 25rem;
+    border-radius: 5rem;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    background-color: #7b78f8;
+    box-shadow: 0 10px 20px 0 rgba(123, 120, 248, 0.5);
+}
+
+.button2{
+    margin-left: 5px;
+}
+
+.button1{
+    margin-right: 5px;
+}
+
+.form-employer{
+    display: none;
+}
+
+.span-error{
+    font-size: 12px;
+    color: red;
+}
