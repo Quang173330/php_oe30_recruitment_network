@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('file','UserController@index');
+Route::get('uploads','UserController@viewa');
+Route::post('files','UserController@upload')->name('upload');
