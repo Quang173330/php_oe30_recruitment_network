@@ -8,11 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel='stylesheet'
         type='text/css' />
-    <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css' />
     <link href='{{ asset('bower_components/lato-font/css/lato-font.min.css') }}'>
     <link href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 
 <body>
@@ -85,6 +84,9 @@
             <div class="clearfix"> </div>
         </div>
     </div>
+    <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>

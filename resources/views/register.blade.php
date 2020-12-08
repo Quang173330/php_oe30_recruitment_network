@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+@endsection
+
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
@@ -24,7 +28,7 @@
         </div>
         <div class="single">
             <div class="form-container">
-                <form class="row" method="POST"  id="form-candidate">
+                <form action="{{ route('register') }}" class="row" method="POST" id="form-candidate">
                     @csrf
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
@@ -97,7 +101,7 @@
                         </div>
                     </div>
                 </form>
-                <form class="row form-employer" method="POST"  id="form-employer">
+                <form action="{{ route('register-employer') }}" class="row form-employer" method="POST" id="form-employer">
                     @csrf
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
@@ -211,7 +215,8 @@
                                 <label class="col-md-3 control-lable"
                                     for="subjects">@lang('register.introduce_company')</label>
                                 <div class="col-md-9 sm_1">
-                                    <textarea class="ckeditor" cols="77" name="introduce-company" rows="6" value=""> </textarea>
+                                    <textarea class="ckeditor" cols="77" name="introduce-company" rows="6"
+                                        value=""> </textarea>
                                     @error('introduce-company')
                                         <span class="invalid-feedback" role="alert">
                                             <span class="span-error">{{ $message }}</span>
@@ -230,7 +235,11 @@
             </div>
         </div>
     </div>
+
+@endsection
+
+@section('script')
     <script src="{{ asset('js/register.js') }}"></script>
-    <script src="{{asset('bower_components/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('bower_components/ckeditor/style.js')}}"></script>
+    <script src="{{ asset('bower_components/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('bower_components/ckeditor/style.js') }}"></script>
 @endsection
