@@ -61,12 +61,12 @@ class User extends Authenticatable
 
     public function tags()
     {
-        return $this->morphMany(Tag::class, 'taggable')->withPivot('type');
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 
     public function company()
     {
-        return $this->hasOne(Conpany::class);
+        return $this->hasOne(Company::class);
     }
 
     public function jobs()

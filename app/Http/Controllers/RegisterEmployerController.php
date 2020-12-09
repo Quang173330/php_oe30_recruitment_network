@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+
 use App\User;
 use App\Company;
 use App\Http\Requests\RegisterEmployerRequest;
@@ -82,12 +83,15 @@ class RegisterEmployerController extends Controller
     {
         event(new Registered($user = $this->create($request)));
         event(new Registered($company = $this->createCompany($request, $user->id)));
+        $this->guard()->login($user);
         if ($response = $this->registered($request, $user, $company)) {
             return $response;
         }
 
         return $request->wantsJson()
             ? new JsonResponse([], 201)
-            : redirect($this->redirectPath());
+            : redirect()->route('upload.employer');
     }
+
+
 }

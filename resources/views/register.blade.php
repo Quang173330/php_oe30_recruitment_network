@@ -6,8 +6,6 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-
-
     <div class="container">
         <div class="choice" id="choice">
             <div class="choice-1">

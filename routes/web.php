@@ -23,3 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/registerEmployer', 'RegisterEmployerController@register')
 ->name('register-employer');
+
+Route::resource('users', UserController::class);
+Route::get('/employer/upload','EmployerUpdateProfile@uploadProfile')->name('upload.employer');
+Route::post('/employer/upload','EmployerUpdateProfile@upload')->name('upload');
