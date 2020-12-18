@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Tag;
 use App\Models\Job;
 use App\Models\User;
+use App\Models\Company;
 use DB;
 
 class JobController extends Controller
@@ -171,7 +172,7 @@ class JobController extends Controller
 
     public function filter(Request $request)
     {
-        if (is_null($request->tag)){
+        if (is_null($request->tag)) {
             $jobs = Job::all();
 
             return view('layouts.filter_job', [
@@ -185,12 +186,37 @@ class JobController extends Controller
             ->whereIn('tags.id', $request->tag)
             ->where('taggable_type', Job::class)
             ->groupBy('jobs.id')
-            ->havingRaw('count(jobs.id)='.count($request->tag))
+            ->havingRaw('count(jobs.id)=' . count($request->tag))
             ->get()->pluck('id');
         $filterJobs = Job::whereIn('id', $filterJobsId)->get();
 
         return view('layouts.filter_job', [
             'jobs' => $filterJobs,
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        if ($request->title) {
+            $jobs = Job::with('images')->where('title', 'LIKE', '%' . $request->title . '%')->get();
+
+            foreach ($jobs as $job) {
+                $job->url =  $job->images()->where('type', config('user.avatar'))->first();
+            }
+
+            return view('search_jobs', [
+                'jobs' => $jobs,
+            ]);
+        }
+
+        $companies = Company::with('images')->where('name', 'LIKE', '%' . $request->name . '%')->get();
+
+        foreach ($companies as $company) {
+            $company->url =  $company->images()->where('type', config('user.avatar'))->first();
+        }
+
+        return view('search_company', [
+            'companies' => $companies,
         ]);
     }
 }

@@ -33,4 +33,8 @@ class Job extends Model
         return $this->belongsTo(Company::class);
     }
 
+    public function images()
+    {
+        return $this->hasManyThrough(Image::class, Company::class, 'id', 'imageable_id', 'company_id', 'id');
+    }
 }
