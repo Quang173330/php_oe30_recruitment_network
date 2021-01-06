@@ -1,15 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Role;
-use App\Image;
-use App\Tag;
-use App\Company;
-use App\Job;
+use App\Models\Role;
+use App\Models\Image;
+use App\Models\Tag;
+use App\Models\Company;
+use App\Models\Job;
 
 class User extends Authenticatable
 {
@@ -26,6 +26,8 @@ class User extends Authenticatable
         'password',
         'cv',
         'introduce',
+        'role_id',
+        'status',
     ];
 
     /**
@@ -59,12 +61,12 @@ class User extends Authenticatable
 
     public function tags()
     {
-        return $this->morphMany(Tag::class, 'taggable')->withPivot('type');
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 
     public function company()
     {
-        return $this->hasOne(Conpany::class);
+        return $this->hasOne(Company::class);
     }
 
     public function jobs()

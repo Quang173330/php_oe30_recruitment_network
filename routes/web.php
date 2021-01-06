@@ -16,3 +16,47 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => 'localization'], function () {
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::post('/employer/register', 'RegisterEmployerController@register')->name('employer.register');
+
+    Route::resource('companies', CompanyController::class);
+
+    Route::resource('jobs', 'JobController');
+
+    Route::patch('apply/{id}', 'JobController@apply')->name('apply');
+
+    Route::get('cancel-apply/{id}', 'JobController@cancelApply')->name('cancel_apply');
+
+    Route::get('show-apply-list', 'JobController@showApplyList')->name('show_apply_list');
+
+    Route::get('history','JobController@showHistoryCreateJob')->name('history');
+
+    Route::get('list-candidate/{id}','JobController@showListCandidateApply')->name('list_candidate');
+
+    Route::patch('accept-reject/{user_id}/{job_id}/{status}','JobController@acceptOrReject')->name('accept_reject');
+
+    Route::resource('users', UserController::class);
+
+    Route::get('list-user', 'AdminController@viewListUser')->name('list_user');
+
+    Route::get('list-job', 'AdminController@viewListJob')->name('list_job');
+
+    Route::get('approve-job/{id}', 'AdminController@approveJob')->name('approve_job');
+
+    Route::post('filter', 'JobController@filter')->name('filter');
+
+    Route::get('/search','JobController@search')->name('search');
+
+    Route::get('update-user/{id}/{status}', 'AdminController@updateUser')->name('update_user');
+});
+
+Route::get('change-language/{locale}', 'HomeController@changeLanguage')->name('change-language');
+
+Route::get('/search','JobController@search')->name('search');
+
+Route::get('job-by-tag/{id}', 'JobController@findJobByTag')->name('job_by_tag');

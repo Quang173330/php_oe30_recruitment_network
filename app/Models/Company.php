@@ -1,8 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Image;
+use App\Models\Job;
+use App\Models\User;
 
 class Company extends Model
 {
@@ -11,6 +14,7 @@ class Company extends Model
         'address',
         'website',
         'introduce',
+        'user_id',
     ];
 
     public function user()

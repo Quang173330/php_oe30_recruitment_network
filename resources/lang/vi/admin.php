@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'approverd' => 'Danh sách công việc',
-    'upapproverd' => 'Danh sách công viêc đang chờ phê duyệt',
-    'employer' => 'Danh sách nhà tuyển dụng',
-    'candidate' => "Danh sách ứng viên",
+    'approved_job' => 'Đã được phê duyệt',
+    'unapproved_job' => 'Chưa được phê duyệt',
+    'approve' => 'Phê duyệt',
+    'employer' => 'Ứng viên',
+    'candidate' => 'Nhà tuyển dụng',
 ];
