@@ -6,54 +6,46 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Tag;
 use App\Models\Job;
-use App\Models\User;
 use App\Models\Company;
 use DB;
-use Alert;
+use App\Repositories\Job\JobRepositoryInterface;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class JobController extends Controller
 {
+    use WithoutMiddleware;
+    protected $jobRepo;
+
+    public function __construct(JobRepositoryInterface $jobRepo)
+    {
+        $this->jobRepo = $jobRepo;
+    }
+
     public function index()
     {
-        $allJobs = Job::where('status', config('job_config.approve'))->with('images')->orderBy('created_at', 'desc')->paginate(config('job_config.paginate'));
-        $skills = Tag::where('type', config('tag_config.skill'))->get();
-        $langs = Tag::where('type', config('tag_config.language'))->get();
-        $workingTimes = Tag::where('type', config('tag_config.working_time'))->get();
-        foreach ($allJobs as $job) {
-            $job->url =  $job->images()->where('type', config('user.avatar'))->first()->url;
-        }
+        $allJobs = $this->jobRepo->getAllJob();
+        $tags = $this->jobRepo->getAllTag();
+
+        $skills = $tags->where('type', config('tag_config.skill'))->all();
+        $langs = $tags->where('type', config('tag_config.language'))->all();
+        $workingTimes = $tags->where('type', config('tag_config.working_time'))->all();
         if (Auth::check()) {
-            $appliedJobs = Auth::user()->jobs()->where('applications.status', config('job_config.waiting'))->get();
+            $appliedJobs = $this->jobRepo->appliedJobs(Auth::user());
             $tags = array();
-            $tagSkill = Auth::user()->tags->where('type', config('tag_config.skill'))->first();
+            $tagsOfUser = $this->jobRepo->getTagByUser(Auth::user());
+            $tagSkill = $tagsOfUser->where('type', config('tag_config.skill'))->first();
 
             if ($tagSkill) {
                 array_push($tags, $tagSkill->id);
             }
 
-            $tagLang = Auth::user()->tags->where('type', config('tag_config.language'))->first();
+            $tagLang = $tagsOfUser->where('type', config('tag_config.language'))->first();
 
             if ($tagLang) {
                 array_push($tags, $tagLang->id);
             }
-
             if (count($tags)) {
-                $suitableJobsId = DB::table('jobs')
-                    ->join('taggables', 'jobs.id', '=', 'taggables.taggable_id')
-                    ->join('tags', 'tags.id', '=', 'taggables.tag_id')
-                    ->select('jobs.id')
-                    ->where('status', config('job_config.approve'))
-                    ->whereIn('tags.id', $tags)
-                    ->where('taggable_type', Job::class)
-                    ->groupBy('jobs.id')
-                    ->havingRaw('count(jobs.id)=' . count($tags))
-                    ->get()->pluck('id');
-
-                $suitableJobs = Job::with('images')->whereIn('id', $suitableJobsId)->orderBy('created_at', 'desc')->get();
-
-                foreach ($suitableJobs as $job) {
-                    $job->url =  $job->images()->where('type', config('user.avatar'))->first()->url;
-                }
+                $suitableJobs = $this->jobRepo->getSuitableJobs($tags);
 
                 return view('listjob', compact('allJobs', 'skills', 'langs', 'workingTimes', 'suitableJobs', 'appliedJobs'));
             }
@@ -86,7 +78,7 @@ class JobController extends Controller
         if ($this->authorize('create', Job::class)) {
             $job = Job::create($request->all());
             $job->tags()->attach($request->tag);
-            Alert::success(trans('job.create_messeage'));
+            // Alert::success(trans('job.create_messeage'));
 
             return redirect()->route('history');
         }
@@ -136,7 +128,7 @@ class JobController extends Controller
         if ($this->authorize('update', $job)) {
             $job->update($request->all());
             $job->tags()->sync($request->tag);
-            Alert::success(trans('job.edit_messeage'));
+            // Alert::success(trans('job.edit_messeage'));
 
             return redirect()->route('jobs.show', ['job' => $id]);
         }
@@ -156,9 +148,8 @@ class JobController extends Controller
     public function apply($id)
     {
         $user = Auth::user();
-        $job = Job::findOrFail($id);
-        $job->users()->attach($user->id, ['status' => config('job_config.waiting')]);
-        Alert::success(trans('job.apply_messeage'));
+        $this->jobRepo->apply($id, $user->id);
+        // Alert::success(trans('job.apply_messeage'));
 
         return redirect()->route('show_apply_list');
     }
@@ -166,19 +157,15 @@ class JobController extends Controller
     public function cancelApply($id)
     {
         $user = Auth::user();
-        $job = Job::findOrFail($id);
-        $job->users()->detach($user->id);
-        Alert::success(trans('job.cancle_messeage'));
+        $this->jobRepo->cancelApply($id, $user->id);
+        // Alert::success(trans('job.cancle_messeage'));
 
         return redirect()->route('show_apply_list');
     }
 
     public function showApplyList()
     {
-        $applyJobs = Auth::user()->jobs()->orderBy('applications.status', 'asc')->get()->load('images');
-        foreach ($applyJobs as $job) {
-            $job->url =  $job->images()->where('type', config('user.avatar'))->first()->url;
-        }
+        $applyJobs = $this->jobRepo->applyJobs(Auth::user());
 
         return view('apply_list', [
             'jobs' => $applyJobs,
@@ -187,43 +174,33 @@ class JobController extends Controller
 
     public function showListCandidateApply($id)
     {
-        $job = Job::findOrFail($id);
-        $job->url =  $job->images()->where('type', config('user.avatar'))->first()->url;
-
-        if ($this->authorize('update', $job)) {
-            $users = $job->users()->orderBy('applications.status', 'asc')->get();
-
-            return view('candidate', [
-                'job' => $job,
-                'users' => $users,
-            ]);
-        }
+        $job = $this->jobRepo->getJob($id);
+        $this->authorize('update', $job);
+        $users = $this->jobRepo->showListCandidateApply($job);
+        return view('candidate', [
+            'job' => $job,
+            'users' => $users,
+        ]);
     }
 
     public function showHistoryCreateJob()
     {
-        if ($this->authorize('create', Job::class)) {
-            $jobs = Auth::user()->company->jobs()->orderBy('created_at', 'desc')->get()->load('images');
+        $this->authorize('create', Job::class);
+        $jobs = $this->jobRepo->showHistoryCreateJob(Auth::user());
 
-            foreach ($jobs as $job) {
-                $job->url =  $job->images()->where('type', config('user.avatar'))->first()->url;
-            }
-
-
-            return view('job_history', [
-                'jobs' => $jobs,
-            ]);
-        }
+        return view('job_history', [
+            'jobs' => $jobs,
+        ]);
     }
 
     public function acceptOrReject($userId, $jobId, $status)
     {
-        $job = Job::findOrFail($jobId);
-        if ($this->authorize('update', $job)) {
-            $job->users()->where('user_id', $userId)->update(['applications.status' => $status]);
+        // dd($userId,$jobId);
+        $job = $this->jobRepo->find($jobId);
+        $this->authorize('update', $job);
+        $this->jobRepo->acceptOrReject($job, $userId, $status);
 
-            return redirect()->route('list_candidate', ['id' => $jobId]);
-        }
+        return redirect()->route('list_candidate', ['id' => $jobId]);
     }
 
     public function filter(Request $request)

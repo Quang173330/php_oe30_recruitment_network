@@ -121,7 +121,7 @@ class UserController extends Controller
             }
 
             $user->save();
-            Alert::success(trans('job.update_messeage'));
+            // Alert::success(trans('job.update_messeage'));
 
             return redirect()->route('home');
         }

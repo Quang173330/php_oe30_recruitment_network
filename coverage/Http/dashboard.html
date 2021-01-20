@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /opt/lampp/htdocs/project1/app/Http</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/opt/lampp/htdocs/project1/app</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Http</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controllers/AdminController.php.html#11">App\Http\Controllers\AdminController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/Admin.php.html#9">App\Http\Middleware\Admin</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/UpdateCompanyRequest.php.html#7">App\Http\Requests\UpdateCompanyRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/RegisterEmployerRequest.php.html#7">App\Http\Requests\RegisterEmployerRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/TrustHosts.php.html#7">App\Http\Middleware\TrustHosts</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/RedirectIfAuthenticated.php.html#9">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/Localization.php.html#9">App\Http\Middleware\Localization</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/Authenticate.php.html#7">App\Http\Middleware\Authenticate</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#14">App\Http\Controllers\UserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/ConfirmPasswordController.php.html#9">App\Http\Controllers\Auth\ConfirmPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/RegisterEmployerController.php.html#18">App\Http\Controllers\RegisterEmployerController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/HomeController.php.html#11">App\Http\Controllers\HomeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#11">App\Http\Controllers\CompanyController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/VerificationController.php.html#9">App\Http\Controllers\Auth\VerificationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#13">App\Http\Controllers\Auth\RegisterController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#14">App\Http\Controllers\Auth\LoginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/UpdateUserRequest.php.html#7">App\Http\Requests\UpdateUserRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#13">App\Http\Controllers\JobController</a></td><td class="text-right">6%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controllers/JobController.php.html#13">App\Http\Controllers\JobController</a></td><td class="text-right">1487</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#14">App\Http\Controllers\UserController</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#11">App\Http\Controllers\CompanyController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#14">App\Http\Controllers\Auth\LoginController</a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Controllers/AdminController.php.html#11">App\Http\Controllers\AdminController</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Controllers/HomeController.php.html#11">App\Http\Controllers\HomeController</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Controllers/RegisterEmployerController.php.html#18">App\Http\Controllers\RegisterEmployerController</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Middleware/Admin.php.html#9">App\Http\Middleware\Admin</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Middleware/Authenticate.php.html#7">App\Http\Middleware\Authenticate</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Middleware/RedirectIfAuthenticated.php.html#9">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controllers/AdminController.php.html#13"><abbr title="App\Http\Controllers\AdminController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#42"><abbr title="App\Http\Controllers\UserController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#202"><abbr title="App\Http\Controllers\JobController::showHistoryCreateJob">showHistoryCreateJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#213"><abbr title="App\Http\Controllers\JobController::acceptOrReject">acceptOrReject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#223"><abbr title="App\Http\Controllers\JobController::filter">filter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#269"><abbr title="App\Http\Controllers\JobController::search">search</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#294"><abbr title="App\Http\Controllers\JobController::findJobByTag">findJobByTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/RegisterEmployerController.php.html#45"><abbr title="App\Http\Controllers\RegisterEmployerController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/RegisterEmployerController.php.html#57"><abbr title="App\Http\Controllers\RegisterEmployerController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/RegisterEmployerController.php.html#68"><abbr title="App\Http\Controllers\RegisterEmployerController::createCompany">createCompany</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/RegisterEmployerController.php.html#79"><abbr title="App\Http\Controllers\RegisterEmployerController::createAvatar">createAvatar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/RegisterEmployerController.php.html#96"><abbr title="App\Http\Controllers\RegisterEmployerController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#21"><abbr title="App\Http\Controllers\UserController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#31"><abbr title="App\Http\Controllers\UserController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#53"><abbr title="App\Http\Controllers\UserController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#151"><abbr title="App\Http\Controllers\JobController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#67"><abbr title="App\Http\Controllers\UserController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#93"><abbr title="App\Http\Controllers\UserController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#136"><abbr title="App\Http\Controllers\UserController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/Admin.php.html#18"><abbr title="App\Http\Middleware\Admin::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/Authenticate.php.html#15"><abbr title="App\Http\Middleware\Authenticate::redirectTo">redirectTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/Localization.php.html#18"><abbr title="App\Http\Middleware\Localization::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/RedirectIfAuthenticated.php.html#19"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/TrustHosts.php.html#14"><abbr title="App\Http\Middleware\TrustHosts::hosts">hosts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/RegisterEmployerRequest.php.html#14"><abbr title="App\Http\Requests\RegisterEmployerRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/RegisterEmployerRequest.php.html#24"><abbr title="App\Http\Requests\RegisterEmployerRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/UpdateCompanyRequest.php.html#14"><abbr title="App\Http\Requests\UpdateCompanyRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/UpdateCompanyRequest.php.html#24"><abbr title="App\Http\Requests\UpdateCompanyRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/UpdateUserRequest.php.html#14"><abbr title="App\Http\Requests\UpdateUserRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#189"><abbr title="App\Http\Controllers\JobController::showListCandidateApply">showListCandidateApply</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#139"><abbr title="App\Http\Controllers\JobController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AdminController.php.html#18"><abbr title="App\Http\Controllers\AdminController::viewListUser">viewListUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#86"><abbr title="App\Http\Controllers\Auth\RegisterController::showRegistrationForm">showRegistrationForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AdminController.php.html#30"><abbr title="App\Http\Controllers\AdminController::updateUser">updateUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AdminController.php.html#44"><abbr title="App\Http\Controllers\AdminController::viewListJob">viewListJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/AdminController.php.html#72"><abbr title="App\Http\Controllers\AdminController::approveJob">approveJob</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/ConfirmPasswordController.php.html#36"><abbr title="App\Http\Controllers\Auth\ConfirmPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#41"><abbr title="App\Http\Controllers\Auth\LoginController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#46"><abbr title="App\Http\Controllers\Auth\LoginController::showLoginForm">showLoginForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#53"><abbr title="App\Http\Controllers\Auth\LoginController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#81"><abbr title="App\Http\Controllers\Auth\LoginController::sendFailedLoginResponseUnconfirmed">sendFailedLoginResponseUnconfirmed</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#88"><abbr title="App\Http\Controllers\Auth\LoginController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#40"><abbr title="App\Http\Controllers\Auth\RegisterController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#51"><abbr title="App\Http\Controllers\Auth\RegisterController::validator">validator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#66"><abbr title="App\Http\Controllers\Auth\RegisterController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/VerificationController.php.html#36"><abbr title="App\Http\Controllers\Auth\VerificationController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#122"><abbr title="App\Http\Controllers\JobController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#18"><abbr title="App\Http\Controllers\CompanyController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#28"><abbr title="App\Http\Controllers\CompanyController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#39"><abbr title="App\Http\Controllers\CompanyController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#50"><abbr title="App\Http\Controllers\CompanyController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#64"><abbr title="App\Http\Controllers\CompanyController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#78"><abbr title="App\Http\Controllers\CompanyController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#114"><abbr title="App\Http\Controllers\CompanyController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/HomeController.php.html#24"><abbr title="App\Http\Controllers\HomeController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/HomeController.php.html#74"><abbr title="App\Http\Controllers\HomeController::changeLanguage">changeLanguage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#22"><abbr title="App\Http\Controllers\JobController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#73"><abbr title="App\Http\Controllers\JobController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#90"><abbr title="App\Http\Controllers\JobController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#101"><abbr title="App\Http\Controllers\JobController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/UpdateUserRequest.php.html#24"><abbr title="App\Http\Requests\UpdateUserRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controllers/UserController.php.html#93"><abbr title="App\Http\Controllers\UserController::update">update</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#22"><abbr title="App\Http\Controllers\JobController::index">index</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Controllers/HomeController.php.html#24"><abbr title="App\Http\Controllers\HomeController::index">index</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#223"><abbr title="App\Http\Controllers\JobController::filter">filter</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#78"><abbr title="App\Http\Controllers\CompanyController::update">update</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controllers/AdminController.php.html#44"><abbr title="App\Http\Controllers\AdminController::viewListJob">viewListJob</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#53"><abbr title="App\Http\Controllers\Auth\LoginController::login">login</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#269"><abbr title="App\Http\Controllers\JobController::search">search</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#88"><abbr title="App\Http\Controllers\Auth\LoginController::logout">logout</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Middleware/Admin.php.html#18"><abbr title="App\Http\Middleware\Admin::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#101"><abbr title="App\Http\Controllers\JobController::show">show</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controllers/RegisterEmployerController.php.html#96"><abbr title="App\Http\Controllers\RegisterEmployerController::register">register</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Middleware/Authenticate.php.html#15"><abbr title="App\Http\Middleware\Authenticate::redirectTo">redirectTo</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#67"><abbr title="App\Http\Controllers\UserController::edit">edit</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/UserController.php.html#53"><abbr title="App\Http\Controllers\UserController::show">show</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#294"><abbr title="App\Http\Controllers\JobController::findJobByTag">findJobByTag</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#189"><abbr title="App\Http\Controllers\JobController::showListCandidateApply">showListCandidateApply</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#213"><abbr title="App\Http\Controllers\JobController::acceptOrReject">acceptOrReject</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#202"><abbr title="App\Http\Controllers\JobController::showHistoryCreateJob">showHistoryCreateJob</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#151"><abbr title="App\Http\Controllers\JobController::destroy">destroy</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#139"><abbr title="App\Http\Controllers\JobController::update">update</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#122"><abbr title="App\Http\Controllers\JobController::edit">edit</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#90"><abbr title="App\Http\Controllers\JobController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/JobController.php.html#73"><abbr title="App\Http\Controllers\JobController::create">create</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/CompanyController.php.html#64"><abbr title="App\Http\Controllers\CompanyController::edit">edit</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Middleware/RedirectIfAuthenticated.php.html#19"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.5</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 9.5.0</a> at Thu Jan 21 8:59:39 UTC 2021.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js" type="text/javascript"></script>
+  <script src="../_js/d3.min.js" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([17,1,0,0,0,0,0,0,0,0,0,9], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([61,0,0,0,0,0,0,0,0,0,0,4], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,9,"<a href=\"Controllers\/AdminController.php.html#11\">App\\Http\\Controllers\\AdminController<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/ConfirmPasswordController.php.html#9\">App\\Http\\Controllers\\Auth\\ConfirmPasswordController<\/a>"],[100,0,"<a href=\"Controllers\/Auth\/ForgotPasswordController.php.html#8\">App\\Http\\Controllers\\Auth\\ForgotPasswordController<\/a>"],[0,11,"<a href=\"Controllers\/Auth\/LoginController.php.html#14\">App\\Http\\Controllers\\Auth\\LoginController<\/a>"],[0,4,"<a href=\"Controllers\/Auth\/RegisterController.php.html#13\">App\\Http\\Controllers\\Auth\\RegisterController<\/a>"],[100,0,"<a href=\"Controllers\/Auth\/ResetPasswordController.php.html#9\">App\\Http\\Controllers\\Auth\\ResetPasswordController<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/VerificationController.php.html#9\">App\\Http\\Controllers\\Auth\\VerificationController<\/a>"],[0,13,"<a href=\"Controllers\/CompanyController.php.html#11\">App\\Http\\Controllers\\CompanyController<\/a>"],[100,0,"<a href=\"Controllers\/Controller.php.html#10\">App\\Http\\Controllers\\Controller<\/a>"],[0,8,"<a href=\"Controllers\/HomeController.php.html#11\">App\\Http\\Controllers\\HomeController<\/a>"],[6.432748538011696,42,"<a href=\"Controllers\/JobController.php.html#13\">App\\Http\\Controllers\\JobController<\/a>"],[0,7,"<a href=\"Controllers\/RegisterEmployerController.php.html#18\">App\\Http\\Controllers\\RegisterEmployerController<\/a>"],[0,16,"<a href=\"Controllers\/UserController.php.html#14\">App\\Http\\Controllers\\UserController<\/a>"],[100,0,"<a href=\"Kernel.php.html#7\">App\\Http\\Kernel<\/a>"],[0,3,"<a href=\"Middleware\/Admin.php.html#9\">App\\Http\\Middleware\\Admin<\/a>"],[0,2,"<a href=\"Middleware\/Authenticate.php.html#7\">App\\Http\\Middleware\\Authenticate<\/a>"],[100,0,"<a href=\"Middleware\/CheckForMaintenanceMode.php.html#7\">App\\Http\\Middleware\\CheckForMaintenanceMode<\/a>"],[100,0,"<a href=\"Middleware\/EncryptCookies.php.html#7\">App\\Http\\Middleware\\EncryptCookies<\/a>"],[0,1,"<a href=\"Middleware\/Localization.php.html#9\">App\\Http\\Middleware\\Localization<\/a>"],[0,2,"<a href=\"Middleware\/RedirectIfAuthenticated.php.html#9\">App\\Http\\Middleware\\RedirectIfAuthenticated<\/a>"],[100,0,"<a href=\"Middleware\/TrimStrings.php.html#7\">App\\Http\\Middleware\\TrimStrings<\/a>"],[0,1,"<a href=\"Middleware\/TrustHosts.php.html#7\">App\\Http\\Middleware\\TrustHosts<\/a>"],[100,0,"<a href=\"Middleware\/TrustProxies.php.html#8\">App\\Http\\Middleware\\TrustProxies<\/a>"],[100,0,"<a href=\"Middleware\/VerifyCsrfToken.php.html#7\">App\\Http\\Middleware\\VerifyCsrfToken<\/a>"],[0,2,"<a href=\"Requests\/RegisterEmployerRequest.php.html#7\">App\\Http\\Requests\\RegisterEmployerRequest<\/a>"],[0,2,"<a href=\"Requests\/UpdateCompanyRequest.php.html#7\">App\\Http\\Requests\\UpdateCompanyRequest<\/a>"],[0,2,"<a href=\"Requests\/UpdateUserRequest.php.html#7\">App\\Http\\Requests\\UpdateUserRequest<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controllers\/AdminController.php.html#13\">App\\Http\\Controllers\\AdminController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/AdminController.php.html#18\">App\\Http\\Controllers\\AdminController::viewListUser<\/a>"],[0,1,"<a href=\"Controllers\/AdminController.php.html#30\">App\\Http\\Controllers\\AdminController::updateUser<\/a>"],[0,5,"<a href=\"Controllers\/AdminController.php.html#44\">App\\Http\\Controllers\\AdminController::viewListJob<\/a>"],[0,1,"<a href=\"Controllers\/AdminController.php.html#72\">App\\Http\\Controllers\\AdminController::approveJob<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/ConfirmPasswordController.php.html#36\">App\\Http\\Controllers\\Auth\\ConfirmPasswordController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/LoginController.php.html#41\">App\\Http\\Controllers\\Auth\\LoginController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/LoginController.php.html#46\">App\\Http\\Controllers\\Auth\\LoginController::showLoginForm<\/a>"],[0,5,"<a href=\"Controllers\/Auth\/LoginController.php.html#53\">App\\Http\\Controllers\\Auth\\LoginController::login<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/LoginController.php.html#81\">App\\Http\\Controllers\\Auth\\LoginController::sendFailedLoginResponseUnconfirmed<\/a>"],[0,3,"<a href=\"Controllers\/Auth\/LoginController.php.html#88\">App\\Http\\Controllers\\Auth\\LoginController::logout<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/RegisterController.php.html#40\">App\\Http\\Controllers\\Auth\\RegisterController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/RegisterController.php.html#51\">App\\Http\\Controllers\\Auth\\RegisterController::validator<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/RegisterController.php.html#66\">App\\Http\\Controllers\\Auth\\RegisterController::create<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/RegisterController.php.html#86\">App\\Http\\Controllers\\Auth\\RegisterController::showRegistrationForm<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/VerificationController.php.html#36\">App\\Http\\Controllers\\Auth\\VerificationController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/CompanyController.php.html#18\">App\\Http\\Controllers\\CompanyController::index<\/a>"],[0,1,"<a href=\"Controllers\/CompanyController.php.html#28\">App\\Http\\Controllers\\CompanyController::create<\/a>"],[0,1,"<a href=\"Controllers\/CompanyController.php.html#39\">App\\Http\\Controllers\\CompanyController::store<\/a>"],[0,1,"<a href=\"Controllers\/CompanyController.php.html#50\">App\\Http\\Controllers\\CompanyController::show<\/a>"],[0,2,"<a href=\"Controllers\/CompanyController.php.html#64\">App\\Http\\Controllers\\CompanyController::edit<\/a>"],[0,6,"<a href=\"Controllers\/CompanyController.php.html#78\">App\\Http\\Controllers\\CompanyController::update<\/a>"],[0,1,"<a href=\"Controllers\/CompanyController.php.html#114\">App\\Http\\Controllers\\CompanyController::destroy<\/a>"],[0,7,"<a href=\"Controllers\/HomeController.php.html#24\">App\\Http\\Controllers\\HomeController::index<\/a>"],[0,1,"<a href=\"Controllers\/HomeController.php.html#74\">App\\Http\\Controllers\\HomeController::changeLanguage<\/a>"],[100,1,"<a href=\"Controllers\/JobController.php.html#17\">App\\Http\\Controllers\\JobController::__construct<\/a>"],[0,7,"<a href=\"Controllers\/JobController.php.html#22\">App\\Http\\Controllers\\JobController::index<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#73\">App\\Http\\Controllers\\JobController::create<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#90\">App\\Http\\Controllers\\JobController::store<\/a>"],[0,3,"<a href=\"Controllers\/JobController.php.html#101\">App\\Http\\Controllers\\JobController::show<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#122\">App\\Http\\Controllers\\JobController::edit<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#139\">App\\Http\\Controllers\\JobController::update<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#151\">App\\Http\\Controllers\\JobController::destroy<\/a>"],[100,1,"<a href=\"Controllers\/JobController.php.html#162\">App\\Http\\Controllers\\JobController::apply<\/a>"],[100,1,"<a href=\"Controllers\/JobController.php.html#171\">App\\Http\\Controllers\\JobController::cancelApply<\/a>"],[100,1,"<a href=\"Controllers\/JobController.php.html#180\">App\\Http\\Controllers\\JobController::showApplyList<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#189\">App\\Http\\Controllers\\JobController::showListCandidateApply<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#202\">App\\Http\\Controllers\\JobController::showHistoryCreateJob<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#213\">App\\Http\\Controllers\\JobController::acceptOrReject<\/a>"],[0,6,"<a href=\"Controllers\/JobController.php.html#223\">App\\Http\\Controllers\\JobController::filter<\/a>"],[0,4,"<a href=\"Controllers\/JobController.php.html#269\">App\\Http\\Controllers\\JobController::search<\/a>"],[0,2,"<a href=\"Controllers\/JobController.php.html#294\">App\\Http\\Controllers\\JobController::findJobByTag<\/a>"],[0,1,"<a href=\"Controllers\/RegisterEmployerController.php.html#45\">App\\Http\\Controllers\\RegisterEmployerController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/RegisterEmployerController.php.html#57\">App\\Http\\Controllers\\RegisterEmployerController::create<\/a>"],[0,1,"<a href=\"Controllers\/RegisterEmployerController.php.html#68\">App\\Http\\Controllers\\RegisterEmployerController::createCompany<\/a>"],[0,1,"<a href=\"Controllers\/RegisterEmployerController.php.html#79\">App\\Http\\Controllers\\RegisterEmployerController::createAvatar<\/a>"],[0,3,"<a href=\"Controllers\/RegisterEmployerController.php.html#96\">App\\Http\\Controllers\\RegisterEmployerController::register<\/a>"],[0,1,"<a href=\"Controllers\/UserController.php.html#21\">App\\Http\\Controllers\\UserController::index<\/a>"],[0,1,"<a href=\"Controllers\/UserController.php.html#31\">App\\Http\\Controllers\\UserController::create<\/a>"],[0,1,"<a href=\"Controllers\/UserController.php.html#42\">App\\Http\\Controllers\\UserController::store<\/a>"],[0,2,"<a href=\"Controllers\/UserController.php.html#53\">App\\Http\\Controllers\\UserController::show<\/a>"],[0,2,"<a href=\"Controllers\/UserController.php.html#67\">App\\Http\\Controllers\\UserController::edit<\/a>"],[0,8,"<a href=\"Controllers\/UserController.php.html#93\">App\\Http\\Controllers\\UserController::update<\/a>"],[0,1,"<a href=\"Controllers\/UserController.php.html#136\">App\\Http\\Controllers\\UserController::destroy<\/a>"],[0,3,"<a href=\"Middleware\/Admin.php.html#18\">App\\Http\\Middleware\\Admin::handle<\/a>"],[0,2,"<a href=\"Middleware\/Authenticate.php.html#15\">App\\Http\\Middleware\\Authenticate::redirectTo<\/a>"],[0,1,"<a href=\"Middleware\/Localization.php.html#18\">App\\Http\\Middleware\\Localization::handle<\/a>"],[0,2,"<a href=\"Middleware\/RedirectIfAuthenticated.php.html#19\">App\\Http\\Middleware\\RedirectIfAuthenticated::handle<\/a>"],[0,1,"<a href=\"Middleware\/TrustHosts.php.html#14\">App\\Http\\Middleware\\TrustHosts::hosts<\/a>"],[0,1,"<a href=\"Requests\/RegisterEmployerRequest.php.html#14\">App\\Http\\Requests\\RegisterEmployerRequest::authorize<\/a>"],[0,1,"<a href=\"Requests\/RegisterEmployerRequest.php.html#24\">App\\Http\\Requests\\RegisterEmployerRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/UpdateCompanyRequest.php.html#14\">App\\Http\\Requests\\UpdateCompanyRequest::authorize<\/a>"],[0,1,"<a href=\"Requests\/UpdateCompanyRequest.php.html#24\">App\\Http\\Requests\\UpdateCompanyRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/UpdateUserRequest.php.html#14\">App\\Http\\Requests\\UpdateUserRequest::authorize<\/a>"],[0,1,"<a href=\"Requests\/UpdateUserRequest.php.html#24\">App\\Http\\Requests\\UpdateUserRequest::rules<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
