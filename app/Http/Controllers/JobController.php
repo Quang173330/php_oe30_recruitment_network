@@ -9,51 +9,44 @@ use App\Models\Job;
 use App\Models\User;
 use App\Models\Company;
 use DB;
-use Alert;
+use App\Repositories\Job\JobRepositoryInterface;
+use App\Repositories\Tag\TagRepositoryInterface;
 
 class JobController extends Controller
 {
+    protected $jobRepo, $tagRepo;
+
+    public function __construct(JobRepositoryInterface $jobRepo, TagRepositoryInterface $tagRepo)
+    {
+        $this->jobRepo = $jobRepo;
+        $this->tagRepo = $tagRepo;
+    }
+
     public function index()
     {
-        $allJobs = Job::where('status', config('job_config.approve'))->with('images')->orderBy('created_at', 'desc')->paginate(config('job_config.paginate'));
-        $skills = Tag::where('type', config('tag_config.skill'))->get();
-        $langs = Tag::where('type', config('tag_config.language'))->get();
-        $workingTimes = Tag::where('type', config('tag_config.working_time'))->get();
-        foreach ($allJobs as $job) {
-            $job->url =  $job->images()->where('type', config('user.avatar'))->first()->url;
-        }
+        $allJobs = $this->jobRepo->getAllJob();
+        $tags = $this->tagRepo->getAll();
+
+        $skills = $tags->where('type', config('tag_config.skill'))->all();
+        $langs = $tags->where('type', config('tag_config.language'))->all();
+        $workingTimes = $tags->where('type', config('tag_config.working_time'))->all();
         if (Auth::check()) {
-            $appliedJobs = Auth::user()->jobs()->where('applications.status', config('job_config.waiting'))->get();
+            $appliedJobs = $this->jobRepo->appliedJobs(Auth::user());
             $tags = array();
-            $tagSkill = Auth::user()->tags->where('type', config('tag_config.skill'))->first();
+            $tagsOfUser = $this->tagRepo->getTagByUser(Auth::user());
+            $tagSkill = $tagsOfUser->where('type', config('tag_config.skill'))->first();
 
             if ($tagSkill) {
                 array_push($tags, $tagSkill->id);
             }
 
-            $tagLang = Auth::user()->tags->where('type', config('tag_config.language'))->first();
+            $tagLang = $tagsOfUser->where('type', config('tag_config.language'))->first();
 
             if ($tagLang) {
                 array_push($tags, $tagLang->id);
             }
-
             if (count($tags)) {
-                $suitableJobsId = DB::table('jobs')
-                    ->join('taggables', 'jobs.id', '=', 'taggables.taggable_id')
-                    ->join('tags', 'tags.id', '=', 'taggables.tag_id')
-                    ->select('jobs.id')
-                    ->where('status', config('job_config.approve'))
-                    ->whereIn('tags.id', $tags)
-                    ->where('taggable_type', Job::class)
-                    ->groupBy('jobs.id')
-                    ->havingRaw('count(jobs.id)=' . count($tags))
-                    ->get()->pluck('id');
-
-                $suitableJobs = Job::with('images')->whereIn('id', $suitableJobsId)->orderBy('created_at', 'desc')->get();
-
-                foreach ($suitableJobs as $job) {
-                    $job->url =  $job->images()->where('type', config('user.avatar'))->first()->url;
-                }
+                $suitableJobs = $this->jobRepo->getSuitableJobs($tags);
 
                 return view('listjob', compact('allJobs', 'skills', 'langs', 'workingTimes', 'suitableJobs', 'appliedJobs'));
             }
@@ -66,30 +59,28 @@ class JobController extends Controller
 
     public function create()
     {
-        if ($this->authorize('create', Job::class)) {
-            $skills = Tag::where('type', config('tag_config.skill'))->get();
-            $langs = Tag::where('type', config('tag_config.language'))->get();
-            $workingTimes = Tag::where('type', config('tag_config.working_time'))->get();
-            $companyId = Auth::user()->company->id;
+        $this->authorize('create', Job::class);
+        $tags = $this->tagRepo->getAll();
 
-            return view('create_job', [
-                'skills' => $skills,
-                'langs' => $langs,
-                'workingTimes' => $workingTimes,
-                'id' => $companyId,
-            ]);
-        }
+        $skills = $tags->where('type', config('tag_config.skill'))->all();
+        $langs = $tags->where('type', config('tag_config.language'))->all();
+        $workingTimes = $tags->where('type', config('tag_config.working_time'))->all();
+        $companyId = Auth::user()->company->id;
+
+        return view('create_job', [
+            'skills' => $skills,
+            'langs' => $langs,
+            'workingTimes' => $workingTimes,
+            'id' => $companyId,
+        ]);
     }
 
     public function store(Request $request)
     {
-        if ($this->authorize('create', Job::class)) {
-            $job = Job::create($request->all());
-            $job->tags()->attach($request->tag);
-            Alert::success(trans('job.create_messeage'));
-
-            return redirect()->route('history');
-        }
+       $this->authorize('create', Job::class);
+        $job = $this->jobRepo->create($request->all());
+        $this->jobRepo->addTagToJob($job,$request->tag);
+        return redirect()->route('history');
     }
 
     public function show($id)
