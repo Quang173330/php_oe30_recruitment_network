@@ -87,7 +87,7 @@ class SearchController extends Controller
     public function findJobByTag($id)
     {
         $tag = Tag::findOrFail($id);
-        $jobs = $tag->jobs->where('status', config('job_config.approve'))->paginate(config('job_config.paginate'));
+        $jobs = $tag->jobs()->where('status', config('job_config.approve'))->paginate(config('job_config.paginate'));
         $tag = Auth::user()->tags->where('type', config('tag_config.skill'))->first();
         $suitableJobs = $tag->jobs->where('status', config('job_config.approve'))->get();
         if (is_null($tag)) {

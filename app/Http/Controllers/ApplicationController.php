@@ -46,6 +46,7 @@ class ApplicationController extends Controller
         $job = $this->applicationRepo->getJob($id);
         $this->authorize('update', $job);
         $users = $this->applicationRepo->showListCandidateApply($job);
+        // dd($users);
         return view('candidate', [
             'job' => $job,
             'users' => $users,

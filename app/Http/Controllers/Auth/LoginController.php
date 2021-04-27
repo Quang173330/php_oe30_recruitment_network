@@ -50,33 +50,33 @@ class LoginController extends Controller
         return view('login', compact('jobs'));
     }
 
-    public function login(Request $request)
-    {
-        $this->validateLogin($request);
+    // public function login(Request $request)
+    // {
+    //     $this->validateLogin($request);
 
-        if (
-            method_exists($this, 'hasTooManyLoginAttempts') &&
-            $this->hasTooManyLoginAttempts($request)
-        ) {
-            $this->fireLockoutEvent($request);
+    //     if (
+    //         method_exists($this, 'hasTooManyLoginAttempts') &&
+    //         $this->hasTooManyLoginAttempts($request)
+    //     ) {
+    //         $this->fireLockoutEvent($request);
 
-            return $this->sendLockoutResponse($request);
-        }
+    //         return $this->sendLockoutResponse($request);
+    //     }
 
-        if ($this->guard()->validate($this->credentials($request))) {
-            if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => config('user.confirmed')])) {
-                return $this->sendLoginResponse($request);
-            } else {
-                $this->incrementLoginAttempts($request);
+    //     if ($this->guard()->validate($this->credentials($request))) {
+    //         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => config('user.confirmed')])) {
+    //             return $this->sendLoginResponse($request);
+    //         } else {
+    //             $this->incrementLoginAttempts($request);
 
-                return $this->sendFailedLoginResponseUnconfirmed($request);
-            }
-        }
+    //             return $this->sendFailedLoginResponseUnconfirmed($request);
+    //         }
+    //     }
 
-        $this->incrementLoginAttempts($request);
+    //     $this->incrementLoginAttempts($request);
 
-        return $this->sendFailedLoginResponse($request);
-    }
+    //     return $this->sendFailedLoginResponse($request);
+    // }
 
     protected function sendFailedLoginResponseUnconfirmed(Request $request)
     {
